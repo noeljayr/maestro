@@ -20,6 +20,7 @@ html {
   --backgorund: #121d2b;
   --black: #000b1a;
   --black-2: #1f3047;
+  --black-3: #26364a;
   --off-white: #d9e7fa;
   --primary: #005fdb;
   --secondary: #80afed;
@@ -47,53 +48,55 @@ body {
 
 .main-wrapper {
   overflow-y: auto;
-  scrollbar-width: none;
-  -ms-overflow-style: none;
-  scrollbar-width: none;
   height: 100vh;
   scroll-padding: 5rem;
 }
-.main-wrapper::-webkit-scrollbar {
+.hide-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.hide-scrollbar::-webkit-scrollbar {
   display: none;
 }
-.main-wrapper::-webkit-scrollbar-thumb {
+.hide-scrollbar::-webkit-scrollbar-thumb {
   background: transparent;
 }
-.main-wrapper::-webkit-scrollbar {
+.hide-scrollbar::-webkit-scrollbar {
   width: 0;
   height: 0;
 }
-.main-wrapper::-webkit-scrollbar-track {
+.hide-scrollbar::-webkit-scrollbar-track {
   background: transparent;
 }
-.main-wrapper::-moz-scrollbar {
+.hide-scrollbar::-moz-scrollbar {
   width: 0;
   height: 0;
 }
-.main-wrapper ::-moz-scrollbar-thumb {
+.hide-scrollbar ::-moz-scrollbar-thumb {
   background: transparent;
 }
-.main-wrapper::-moz-scrollbar-track {
+.hide-scrollbar::-moz-scrollbar-track {
   background: transparent;
 }
-.main-wrapper::-ms-scrollbar {
+.hide-scrollbar::-ms-scrollbar {
   width: 0;
   height: 0;
 }
-.main-wrapper::-ms-scrollbar-thumb {
+.hide-scrollbar::-ms-scrollbar-thumb {
   background: transparent;
 }
-.main-wrapper::-ms-scrollbar-track {
+.hide-scrollbar::-ms-scrollbar-track {
   background: transparent;
 }
-.main-wrapper scrollbar {
+.hide-scrollbar scrollbar {
   width: 0;
   height: 0;
 }
-.main-wrapper scrollbar-thumb {
+.hide-scrollbar scrollbar-thumb {
   background: transparent;
 }
-.main-wrapperscrollbar-track {
+.hide-scrollbar scrollbar-track {
   background: transparent;
 }
 .background-blob {
