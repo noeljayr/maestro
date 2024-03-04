@@ -6,7 +6,20 @@ import optionsIcon from "@public/svg/more.svg";
 
 async function getTracks() {
   const prisma = new PrismaClient();
-  const tracks = prisma.tracks.findMany();
+  const tracks = await prisma.tracks.findMany({
+    include: {
+      albums: {
+        select: {
+          title: true,
+          artists: {
+            select: {
+              name: true,
+            },
+          },
+        },
+      },
+    },
+  });
 
   return tracks;
 }
@@ -35,7 +48,12 @@ const Home = async () => {
                 className="track w-full grid items-center gap-2 p-3"
               >
                 <span className="position font-bold">{number}</span>
-                <Image src={""} alt="" height={10} width={10} />
+                <Image
+                  src={require(`/public/images/${track.albums.title}.png`)}
+                  alt={track.albums.title}
+                  height={50}
+                  width={50}
+                />
                 <span className="track-info w-full flex flex-col">
                   <span className="title text-ellipsis text-sm font-bold">
                     {track.title}
@@ -44,7 +62,7 @@ const Home = async () => {
                     className="text-xs text-ellipsis text-nowrap whitespace-nowrap opacity-70"
                     href=""
                   >
-                    Artist Name
+                    {track.albums.artists.name}
                   </Link>
                 </span>
                 <span className="duration text-xs opacity-50">

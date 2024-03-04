@@ -85,6 +85,8 @@
   height: 3.25rem;
   width: 3.25rem;
   border-radius: 0.5rem;
+  object-fit: cover;
+  object-position: center;
 }
 
 .track .more img {
