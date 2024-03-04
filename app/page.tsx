@@ -1,5 +1,3 @@
-'use client'
-
 import "@css/index.css";
 import Link from "next/link";
 import { PrismaClient } from "@prisma/client";
@@ -51,7 +49,7 @@ const Home = async () => {
               >
                 <span className="position font-bold">{number}</span>
                 <Image
-                  src={require(`/public/images/${track.albums.title}.png`)}
+                  src={""}
                   alt={track.albums.title}
                   height={50}
                   width={50}
