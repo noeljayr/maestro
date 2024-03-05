@@ -177,6 +177,18 @@ h1 {
 .top-navbar .cta {
   border-radius: 2rem;
 }
+.top-navbar .cta span {
+  background-color: #1a6fdf;
+  height: 1.7rem;
+  width: 1.7rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.top-navbar .cta span img {
+  height: 1rem;
+}
 .top-navbar .search {
   width: 40%;
   position: relative;
@@ -440,4 +452,18 @@ input:focus {
   -webkit-text-fill-color: transparent;
   background-clip: text;
   text-fill-color: transparent;
+}
+
+.view-more {
+  background-color: #193965;
+  color: var(--primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--font-ss);
+  padding: 0.25rem;
+  padding-left: 0.5rem;
+  padding-right: 0.75rem;
+  border-radius: 0.75rem;
+  font-weight: bold;
 }

@@ -28,7 +28,7 @@ function Genre() {
         return (
           <Link
             key={genre.title}
-            href=""
+            href={`explore/genre/${genre.title}`}
             style={genre.color}
             className={`${styles.genre} p-0 bg-[${genre.color}]`}
           >

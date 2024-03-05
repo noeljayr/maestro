@@ -17,11 +17,10 @@ function TopNav() {
         <Image src={searchIcon} alt="Search Icon" height={15} width={15} />
       </form>
 
-      <Link
-        className="cta flex gap-1 text-sm items-center font-bold"
-        href="profile"
-      >
-        <Image src={profileIcon} alt="Profile Icon" height={20} width={20} />
+      <Link className="cta flex gap-1 text-sm items-center" href="profile">
+        <span>
+          <Image src={profileIcon} alt="Profile Icon" height={20} width={20} />
+        </span>
         Guest
       </Link>
     </div>

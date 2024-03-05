@@ -4,7 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import homeIcon from "@public/svg/home-2.svg";
-import trendingIcon from "@public/svg/activity.svg";
+// import trendingIcon from "@public/svg/activity.svg";
 import aiIcon from "@public/svg/music-play.svg";
 import libraryIcon from "@public/svg/music-playlist.svg";
 import discoverIcon from "@public/svg/discover.svg";
@@ -12,7 +12,7 @@ import discoverIcon from "@public/svg/discover.svg";
 const navLinks = [
   { key: "1", name: "Home", href: "/", icon: homeIcon },
   { key: "2", name: "Maestro AI", href: "/maestroAI", icon: aiIcon },
-  { key: "3", name: "Trending", href: "/trending", icon: trendingIcon },
+  // { key: "3", name: "Trending", href: "/trending", icon: trendingIcon },
   { key: "4", name: "Explore", href: "/explore", icon: discoverIcon },
   { key: "5", name: "Library", href: "/library", icon: libraryIcon },
 ];

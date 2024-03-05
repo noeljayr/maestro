@@ -65,7 +65,10 @@
   height: 4rem;
   justify-content: center;
   place-content: center;
-  grid-template-columns: 1rem 3.25rem 1fr 2.5rem 2.5rem;
+  grid-template-columns: 1rem 3.25rem 1fr 2.5rem;
+}
+.artist-duration {
+  width: fit-content;
 }
 
 .track .track-info {
@@ -77,8 +80,32 @@
 .track .track-info span,
 .track .track-info a {
   text-overflow: ellipsis;
-  width: 100%;
   overflow: hidden;
+  color: var(--off-white);
+}
+.track .track-info a {
+  font-weight: normal;
+}
+
+.track .track-info .dot-seperator {
+  font-size: 1.225rem;
+}
+
+.track .music-play {
+  position: relative;
+}
+
+.track .track-info span {
+  text-overflow: ellipsis;
+}
+.track .track-info .artist-duration a {
+  max-width: 100%;
+  background-color: transparent;
+  transition: var(--transition);
+}
+
+.track .track-info .artist-duration a:hover {
+  opacity: 1;
 }
 
 .track img {
@@ -87,6 +114,29 @@
   border-radius: 0.5rem;
   object-fit: cover;
   object-position: center;
+}
+
+.track .music-play .play-icon {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: red;
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 11, 26, 0.7);
+  opacity: 0;
+  cursor: pointer;
+  transition: var(--transition);
+}
+.track:hover .music-play .play-icon {
+  opacity: 1;
+}
+.track .music-play .play-icon img {
+  height: 1.6rem;
+  width: 1.6rem;
 }
 
 .track .more img {

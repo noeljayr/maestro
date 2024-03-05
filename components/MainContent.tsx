@@ -1,7 +1,7 @@
 "use client";
 
 import { usePathname } from "next/navigation";
-import Player from "@components/Player";
+import Player from "@components/Player/Player";
 
 function MainContent() {
   const pathname = usePathname();

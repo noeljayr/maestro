@@ -1,0 +1,40 @@
+.artists-container {
+  display: grid;
+  grid-template-rows: 12rem;
+  width: 100%;
+  overflow-x: auto;
+}
+
+.artists-container .artist {
+  grid-row: 1;
+  width: 10rem;
+  background-color: var(--black-3);
+  border-radius: var(--radius-2);
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.artists-container .artist img {
+  width: 9rem;
+  height: 9rem;
+  border-radius: var(--radius);
+  object-fit: cover;
+  position: relative;
+}
+
+.artists-container .artist .artist-img {
+  position: relative;
+  display: flex;
+}
+.artists-container .artist .artist-img:after {
+  content: "";
+  position: absolute;
+  background-color: var(--primary);
+  width: 9rem;
+  height: 9rem;
+  top: 0rem;
+  left: 0rem;
+  border-radius: var(--radius);
+  opacity: 0.25;
+}
