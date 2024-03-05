@@ -1,4 +1,4 @@
-'use client'
+"use client";
 
 import React from "react";
 import Image from "next/image";
@@ -16,12 +16,12 @@ function Artist({ artist }: { artist: artistProp }) {
       className="artist flex flex-col gap-2 p-2"
     >
       <span className="artist-img">
-      <Image
-        alt={artist.name}
-        height={100}
-        width={100}
-        src={require(`@public/images/artists/${artist.name}.jpg`)}
-      />
+        <Image
+          alt={artist.name}
+          height={100}
+          width={100}
+          src={require(`/public/images/artists/${artist.name}.jpg`)}
+        />
       </span>
       <span className="font-bold text-sm">{artist.name}</span>
     </Link>
