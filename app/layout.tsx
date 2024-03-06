@@ -5,23 +5,10 @@ import Navigation from "@components/Navigation";
 import TopNavigationBar from "@components/TopNavigationBar";
 import MainContent from "@components/MainContent";
 
-
 export const metadata: Metadata = {
   title: "Maestro",
   description: "The only platform you need to stream music",
 };
-
-const tracks = [
-  {
-    title: "THANK GOD",
-    album_id: 2,
-    duration: "3:04",
-    popularity: 100,
-    cover_image: "public/arts/utopia.jpeg",
-    audio_src: "public/audios/02 THANK GOD - (SongsLover.com)",
-  },
-];
-
 
 export default function RootLayout({
   children,
@@ -35,9 +22,9 @@ export default function RootLayout({
 
         <main className="app z-1 flex gap-6 scroll-smooth">
           <Navigation />
-          <div className="main-wrapper hide-scrollbar scroll-smooth flex flex-col gap-6 h-full w-full p-4">
+          <div className="main-wrapper hide-scrollbar scroll-smooth flex flex-col gap-6 h-full w-full pt-4">
             <TopNavigationBar />
-            <div className="main-content w-full gap-6 grid h-full">
+            <div className="main-content w-full gap-6 pb-4 grid h-full">
               {children}
               <MainContent />
             </div>

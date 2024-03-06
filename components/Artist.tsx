@@ -20,7 +20,7 @@ function Artist({ artist }: { artist: artistProp }) {
           alt={artist.name}
           height={100}
           width={100}
-          src={require(`/public/images/artists/${artist.name}.jpg`)}
+          src={require(`/public/images/artists/${artist.id}.jpg`)}
         />
       </span>
       <span className="font-bold text-sm">{artist.name}</span>

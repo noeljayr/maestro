@@ -1,4 +1,4 @@
-'use client'
+"use client";
 
 import React from "react";
 import Image from "next/image";
@@ -10,9 +10,12 @@ type trackProps = {
   id: number;
   title: string;
   duration: string;
+  popularity: number;
   albums: {
+    id: number;
     title: string;
     artists: {
+      id: number;
       name: string;
     };
   };
@@ -24,7 +27,7 @@ function Track({ track, number }: { track: trackProps; number: number }) {
       <span className="position font-bold">{number}</span>
       <span className="music-play">
         <Image
-          src={require(`/public/images/${track.albums.title}.png`)}
+          src={require(`/public/images/covers/${track.albums.id}.png`)}
           alt={track.albums.title}
           height={50}
           width={50}
@@ -33,18 +36,25 @@ function Track({ track, number }: { track: trackProps; number: number }) {
           <Image src={playIcon} alt="Play icon" height={20} width={20} />
         </span>
       </span>
-      <span className="track-info w-full flex flex-col">
-        <span className="title text-ellipsis text-sm font-bold">
+      <span className="track-info gap-2 w-full flex flex-col">
+        <span className="title flex flex-col gap-1 text-ellipsis text-sm font-bold">
           {track.title}
-          <span className="artist-duration items-center flex gap-2 text-xs">
+          <span className="artist-duration items-center flex gap-3 text-xs">
             <Link
               className="text-xs opacity-50 text-ellipsis text-nowrap whitespace-nowrap"
-              href=""
+              href={`artist/${track.albums.artists.id}`}
             >
               {track.albums.artists.name}
             </Link>
             <span className="font-normal dot-seperator opacity-50">•</span>
             <span className="font-normal opacity-50"> {track.duration}</span>
+            <span className="font-normal optional dot-seperator opacity-50">
+              •
+            </span>
+            <span className="font-normal optional opacity-50">
+              {" "}
+              Played {track.popularity.toLocaleString('en-US')} times
+            </span>
           </span>
         </span>
       </span>

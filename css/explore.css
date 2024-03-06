@@ -5,6 +5,17 @@
   overflow-x: auto;
 }
 
+.explore-content .genre-wrapper {
+  padding: 1rem;
+}
+
+.explore-content {
+  display: grid;
+  overflow-y: auto;
+  background-color: var(--black-2);
+  border-radius: var(--radius-2);
+}
+
 .artists-container .artist {
   grid-row: 1;
   width: 10rem;
@@ -13,7 +24,16 @@
   align-items: center;
   justify-content: center;
   position: relative;
+  transition: var(--transition);
 }
+
+.artists-container .artist:last-child {
+  margin-right: 1rem;
+}
+
+/* .artists-container .artist:hover {
+  background-color: var(--black-2);
+} */
 
 .artists-container .artist img {
   width: 9rem;
@@ -38,3 +58,4 @@
   border-radius: var(--radius);
   opacity: 0.25;
 }
+

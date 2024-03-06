@@ -11,6 +11,7 @@ async function getTracks() {
     include: {
       albums: {
         select: {
+          id: true,
           title: true,
           artists: {
             select: {
@@ -42,7 +43,7 @@ const Home = async () => {
             View More
             <Image
               src={rightIcon}
-              className="ml-1"
+              className=""
               alt="right-icon"
               height={20}
               width={20}

@@ -1,8 +1,8 @@
 import React from "react";
-import styles from "@css/Player.module.css";
+import "@css/player.css";
 
 function Player() {
-  return <div className={styles.player}></div>;
+  return <div className="player"></div>;
 }
 
 export default Player;
