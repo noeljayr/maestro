@@ -13,28 +13,28 @@ async function ViewArtist({ params }: { params: { artistId: string } }) {
     where: { id: id },
   });
 
-  //   return (
-  //     <div>
-  //       {artist?.name ? (
-  //         <span>{artist.name}</span>
-  //       ) : (
-  //         <span>Artist information unavailable</span>
-  //       )}
-  //     </div>
-  //   );
-
   return (
-    <div className="view-artist-container flex flex-col gap-6">
-      <div className="artist-image w-full">
-        <Image
-          alt={`${artist?.name}`}
-          className="blur object-cover"
-          src={require(`@public/images/artists/${artist?.id}.jpg`)}
-          height={100}
-          width={100}
-        />
-      </div>
-    </div>
+    <>
+      {artist?.id ? (
+        <div className="view-artist-container flex flex-col gap-6">
+          <div className="artist-image w-full">
+            <Image
+              alt={`${artist?.name}`}
+              className="blur object-cover"
+              src={require(`@public/images/artists/${artist?.id}.jpg`)}
+              height={100}
+              width={100}
+            />
+          </div>
+        </div>
+      ) : (
+        <div className="content-not-found">
+          <h1 className="font-black text-xl text-center">
+            The Artist you are looking for is not on Meastro...Yet
+          </h1>
+        </div>
+      )}
+    </>
   );
 }
 
