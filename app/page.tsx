@@ -15,6 +15,7 @@ async function getTracks() {
           title: true,
           artists: {
             select: {
+              id: true,
               name: true,
             },
           },
