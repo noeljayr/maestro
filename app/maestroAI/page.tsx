@@ -52,7 +52,7 @@ function MaestroAI() {
   const dynamicClassName = isIntoView ? "visible" : "show-on-scroll";
 
   return (
-    <div className="flex flex-col w-full h-full gap-10 maestro-wrapper">
+    <div className="flex flex-col w-full h-full gap-10 hide-scrollbar maestro-wrapper">
       <div className="top-section flex flex-col gap-4 ">
         <h1 className="lg:text-6xl text-5xl max-sm:text-4xl text-center font-extrabold">
           Introducing Maestro AI

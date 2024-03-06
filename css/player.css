@@ -9,6 +9,12 @@
   position: relative;
 }
 
+@media screen and (max-width: 950px) {
+  .player {
+    display: none;
+  }
+}
+
 .player::after {
   position: absolute;
   content: "";
@@ -20,4 +26,3 @@
   border-bottom-left-radius: inherit;
   border-bottom-right-radius: inherit;
 }
-

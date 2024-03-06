@@ -21,6 +21,22 @@ type trackProps = {
   };
 };
 
+function formatNumber(number: number) {
+  const isNegative = number < 0;
+  number = Math.abs(number);
+
+  const thresholds = [1e3, 1e6, 1e9];
+  const suffixes = ["K", "M", "B"];
+
+  let suffixIndex = thresholds.length - 1;
+  while (number < thresholds[suffixIndex] && suffixIndex > 0) {
+    suffixIndex--;
+  }
+
+  const formattedNumber = (number / thresholds[suffixIndex]).toFixed(1);
+  return (isNegative ? "-" : "") + formattedNumber + suffixes[suffixIndex];
+}
+
 function Track({ track, number }: { track: trackProps; number: number }) {
   return (
     <span key={track.id} className="track w-full grid items-center gap-2 p-3">
@@ -38,7 +54,7 @@ function Track({ track, number }: { track: trackProps; number: number }) {
       </span>
       <span className="track-info gap-2 w-full flex flex-col">
         <span className="title flex flex-col gap-1 text-ellipsis text-sm font-bold">
-          {track.title}
+          <span title={track.title}>{track.title}</span>
           <span className="artist-duration items-center flex gap-3 text-xs">
             <Link
               className="text-xs opacity-50 text-ellipsis text-nowrap whitespace-nowrap"
@@ -53,7 +69,7 @@ function Track({ track, number }: { track: trackProps; number: number }) {
             </span>
             <span className="font-normal optional opacity-50">
               {" "}
-              Played {track.popularity.toLocaleString('en-US')} times
+              Played {" " + formatNumber(track.popularity) + " "} times
             </span>
           </span>
         </span>

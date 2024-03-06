@@ -33,7 +33,7 @@ const Home = async () => {
   return (
     <div className="home-content gap-6">
       <div className="featured-wrapper"></div>
-      <div className="top-chart hide-scrollbar grid gap-2 p-4">
+      <div className="top-chart hide-scrollbar grid gap-2 p-4 pb-0">
         <Link
           href="top"
           className="flex items-center w-full justify-between text-sm font-bold"
