@@ -37,7 +37,7 @@ function TopNav() {
         </span>
       </form>
 
-      <span className="notification flex max-sm:hidden">
+      <span className="notification flex">
         <Image
           src={notificationIcon}
           alt="Nofitication Icon"
@@ -46,11 +46,14 @@ function TopNav() {
         />
       </span>
 
-      <Link className="cta flex gap-1 text-sm items-center" href="profile">
+      <Link
+        className="cta font-bold flex gap-1 text-sm items-center"
+        href="profile"
+      >
         <span>
           <Image src={profileIcon} alt="Profile Icon" height={20} width={20} />
         </span>
-        Guest
+        Demo
       </Link>
     </div>
   );

@@ -164,10 +164,7 @@ const Explore = async () => {
       <Genre />
 
       <div className="artists grid gap-3">
-        <Link
-          href="artists"
-          className="font-bold w-full px-4 flex items-center"
-        >
+        <Link href="artists" className="font-bold w-full flex items-center">
           {" "}
           Popular Artists
           <span className="view-more ml-auto">
@@ -194,8 +191,8 @@ const Explore = async () => {
           Trending in Malawi right now
         </Link>
         {trendingSongs.map((track, index) => (
-            <Track key={track.id} track={track} number={index + 1} />
-          ))}
+          <Track key={track.id} track={track} number={index + 1} plays={true} />
+        ))}
       </div>
     </div>
   );

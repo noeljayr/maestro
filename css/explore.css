@@ -7,6 +7,8 @@
 
 .explore-content .genre-wrapper {
   padding: 1rem;
+  background-color: var(--black-2);
+  border-radius: var(--radius-2);
 }
 
 .explore-content {
@@ -14,8 +16,17 @@
   overflow-y: auto;
   background-color: var(--black-2);
   border-radius: var(--radius-2);
+  padding: 0;
+  background-color: transparent;
 }
-
+.artists {
+  padding: 1rem;
+  background-color: var(--black-2);
+  border-radius: var(--radius-2);
+}
+.artists-container {
+  padding: 0;
+}
 .artists-container .artist {
   grid-row: 1;
   width: 10rem;
@@ -59,3 +70,23 @@
   opacity: 0.25;
 }
 
+.trending {
+  background-color: var(--black-2);
+  border-radius: var(--radius-2);
+  padding: 1rem;
+}
+
+@media screen and (max-width: 640px) {
+  .artists-container .artist {
+    width: 11rem;
+  }
+
+  .artists-container {
+    grid-template-rows: 13rem;
+  }
+  .artists-container .artist img,
+  .artists-container .artist .artist-img:after {
+    width: 10rem;
+    height: 10rem;
+  }
+}

@@ -31,7 +31,7 @@ const Home = async () => {
   const tracks = await getTracks();
 
   return (
-    <div className="home-content gap-6">
+    <div className="home-content hide-scrollbar gap-6">
       <div className="featured-wrapper"></div>
       <div className="top-chart hide-scrollbar grid gap-2 p-4 pb-0">
         <Link
@@ -46,17 +46,20 @@ const Home = async () => {
               src={rightIcon}
               className=""
               alt="right-icon"
-              height={20}
-              width={20}
+              height={40}
+              width={40}
             />
           </span>
         </Link>
 
-        <span className="track-wrapper hide-scrollbar grid gap-2">
-          {tracks.map((track, index) => (
-            <Track key={track.id} track={track} number={index + 1} />
-          ))}
-        </span>
+        {tracks.map((track, index) => (
+          <Track
+            key={track.id}
+            track={track}
+            number={index + 1}
+            plays={false}
+          />
+        ))}
       </div>
     </div>
   );

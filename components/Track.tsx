@@ -21,23 +21,37 @@ type trackProps = {
   };
 };
 
-function formatNumber(number: number) {
-  const isNegative = number < 0;
-  number = Math.abs(number);
-
-  const thresholds = [1e3, 1e6, 1e9];
-  const suffixes = ["K", "M", "B"];
-
-  let suffixIndex = thresholds.length - 1;
-  while (number < thresholds[suffixIndex] && suffixIndex > 0) {
-    suffixIndex--;
+function formatNumber(number: number, show: boolean) {
+  if (!show) {
+    return;
+  }
+  const absNumber = Math.abs(number);
+  if (absNumber < 1000) {
+    return number;
   }
 
-  const formattedNumber = (number / thresholds[suffixIndex]).toFixed(1);
-  return (isNegative ? "-" : "") + formattedNumber + suffixes[suffixIndex];
+  const suffixes = ["", "K", "M", "B", "T"];
+  const exponent = (Math.log10(absNumber) / 3) | 0; // Math.floor(log10(absNumber) / 3)
+  const scaledNumber = (absNumber / Math.pow(10, exponent * 3)).toFixed(1);
+  return (
+    <>
+      <span className="font-normal dot-seperator opacity-50">•</span>
+      <span className="font-normal opacity-50">
+        {" " + scaledNumber + suffixes[exponent] + " Plays"}
+      </span>
+    </>
+  );
 }
 
-function Track({ track, number }: { track: trackProps; number: number }) {
+function Track({
+  track,
+  number,
+  plays,
+}: {
+  track: trackProps;
+  number: number;
+  plays: boolean;
+}) {
   return (
     <span key={track.id} className="track w-full grid items-center gap-2 p-3">
       <span className="position font-bold">{number}</span>
@@ -64,13 +78,7 @@ function Track({ track, number }: { track: trackProps; number: number }) {
             </Link>
             <span className="font-normal dot-seperator opacity-50">•</span>
             <span className="font-normal opacity-50"> {track.duration}</span>
-            <span className="font-normal optional dot-seperator opacity-50">
-              •
-            </span>
-            <span className="font-normal optional opacity-50">
-              {" "}
-              Played {" " + formatNumber(track.popularity) + " "} times
-            </span>
+            <>{formatNumber(track.popularity, plays)}</>
           </span>
         </span>
       </span>
