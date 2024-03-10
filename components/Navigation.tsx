@@ -104,7 +104,7 @@ function Navigation() {
         {navLinks.slice(4, 8).map((link) => {
           const isActive = pathname === link.href;
           return (
-            <Link href={link.href} className={activeLink(isActive)}>
+            <Link key={link.href} href={link.href} className={activeLink(isActive)}>
               {link.icon}
               <span className="text-sm">{link.name}</span>
             </Link>
