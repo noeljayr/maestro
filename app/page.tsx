@@ -1,65 +1,53 @@
 import "@css/index.css";
 import Link from "next/link";
-import { PrismaClient } from "@prisma/client";
+// import { PrismaClient } from "@prisma/client";
 import Image from "next/image";
-import rightIcon from "@public/svg/arrow-right.svg";
-import Track from "@components/Track";
-
-async function getTracks() {
-  const prisma = new PrismaClient();
-  const tracks = await prisma.tracks.findMany({
-    include: {
-      albums: {
-        select: {
-          id: true,
-          title: true,
-          artists: {
-            select: {
-              id: true,
-              name: true,
-            },
-          },
-        },
-      },
-    },
-  });
-
-  return tracks;
-}
+// import rightIcon from "@public/svg/arrow-right.svg";
+// import Track from "@components/Track";
+import topPickBg from "@public/images/top-picks.png";
+import theOffseason from "@public/images/covers/2.png";
 
 const Home = async () => {
-  const tracks = await getTracks();
-
   return (
     <div className="home-content hide-scrollbar gap-6">
       <div className="featured-wrapper"></div>
-      <div className="top-chart hide-scrollbar grid gap-2 p-4 pb-0">
-        <Link
-          href="top"
-          className="flex items-center w-full justify-between text-sm font-bold"
-        >
-          <span>Top Charts</span>
-
-          <span className="view-more ml-auto">
-            View More
-            <Image
-              src={rightIcon}
-              className=""
-              alt="right-icon"
-              height={40}
-              width={40}
-            />
-          </span>
-        </Link>
-
-        {tracks.map((track, index) => (
-          <Track
-            key={track.id}
-            track={track}
-            number={index + 1}
-            plays={false}
-          />
-        ))}
+      <div className="recent flex flex-col gap-4">
+        <span className="font-bold text-sm">Dive back in</span>
+        <div className="playlist-container gap-4">
+          <div className="left gap-4">
+            <Link href="/top" className="">
+              <span className="week text-2xl font-black">
+                Top picks this week
+              </span>
+              <Image
+                className="top-bg"
+                src={topPickBg}
+                alt="Headphones"
+                height={500}
+                width={500}
+              />
+            </Link>
+            <Link href="" className="p-1">
+              2
+            </Link>
+          </div>
+          <div className="right gap-4">
+            <Link href={""} className="p-1 gap-2">
+              <Image
+                src={theOffseason}
+                alt="Off-season"
+                height={500}
+                width={500}
+              />
+              <span className="font-sm">
+               <span className="font-bold text-sm">The Off-Season</span>
+              </span>
+            </Link>
+            <Link href={""} className="p-1 gap-2">
+              4
+            </Link>
+          </div>
+        </div>
       </div>
     </div>
   );

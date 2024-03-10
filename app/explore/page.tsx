@@ -156,15 +156,42 @@ const trendingSongs = [
   },
 ];
 
+async function getTracks() {
+  const prisma = new PrismaClient();
+  const tracks = await prisma.tracks.findMany({
+    include: {
+      albums: {
+        select: {
+          id: true,
+          title: true,
+          artists: {
+            select: {
+              id: true,
+              name: true,
+            },
+          },
+        },
+      },
+    },
+  });
+
+  return tracks;
+}
+
+
 const Explore = async () => {
   const artists = await getArtists();
+  const tracks = await getTracks();
 
   return (
     <div className="flex explore-content hide-scrollbar flex-col gap-7">
       <Genre />
 
       <div className="artists grid gap-3">
-        <Link href="artists" className="font-bold w-full flex items-center">
+        <Link
+          href="artists"
+          className="font-bold w-full px-4 flex items-center"
+        >
           {" "}
           Popular Artists
           <span className="view-more ml-auto">
@@ -192,6 +219,35 @@ const Explore = async () => {
         </Link>
         {trendingSongs.map((track, index) => (
           <Track key={track.id} track={track} number={index + 1} plays={true} />
+        ))}
+      </div>
+
+      <div className="top-chart hide-scrollbar grid gap-2 p-4 pb-0">
+        <Link
+          href="top"
+          className="flex items-center w-full justify-between text-sm font-bold"
+        >
+          <span>Global Leaderboard</span>
+
+          <span className="view-more ml-auto">
+            View More
+            <Image
+              src={rightIcon}
+              className=""
+              alt="right-icon"
+              height={40}
+              width={40}
+            />
+          </span>
+        </Link>
+
+        {tracks.map((track, index) => (
+          <Track
+            key={track.id}
+            track={track}
+            number={index + 1}
+            plays={false}
+          />
         ))}
       </div>
     </div>

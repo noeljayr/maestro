@@ -54,7 +54,7 @@ function Track({
 }) {
   return (
     <span key={track.id} className="track w-full grid items-center gap-2 p-3">
-      <span className="position font-bold">{number}</span>
+      <span className="position text-sm font-bold number">{number}</span>
       <span className="music-play">
         <Image
           src={require(`/public/images/covers/${track.albums.id}.png`)}
